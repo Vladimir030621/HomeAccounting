@@ -1,5 +1,6 @@
 ﻿using HomeAccounting.Models.Interfaces;
 using HomeAccounting.Models.Repositories;
+using HomeAccounting.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,21 +23,21 @@ namespace HomeAccounting.Views
     /// </summary>
     public partial class HistoryPage : Page
     {
-        private IOperationRepository context;
-
         public HistoryPage()
         {
             InitializeComponent();
 
-            context = new OperationRepository();
-
-            Loaded += List_Loaded;
+            Loaded += HistoryPage_Loaded;
         }
 
-
-        private void List_Loaded(object sender, RoutedEventArgs e)
+        private void HistoryPage_Loaded(object sender, RoutedEventArgs e)
         {
-            lbOperation.ItemsSource = context.GetOperations();
+            DataContext = new HistoryPageViewModel();
         }
+
+        //private void List_Loaded(object sender, RoutedEventArgs e)
+        //{
+        //    lbOperation.ItemsSource = context.GetOperations();
+        //}
     }
 }

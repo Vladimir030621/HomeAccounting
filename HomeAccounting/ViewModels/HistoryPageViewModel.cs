@@ -1,19 +1,36 @@
-﻿using System;
+﻿using HomeAccounting.Models.Interfaces;
+using HomeAccounting.Models.Repositories;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 
 namespace HomeAccounting.ViewModels
 {
-    public class HistoryPageViewModel : ViewModel
+    public class HistoryPageViewModel : DependencyObject
     {
-        private string _Title = "Hello";
-
-        public string Title
+        private IOperationRepository context;
+        
+        public HistoryPageViewModel()
         {
-            get => _Title;
-            set => Set(ref _Title, value);
+            context = new OperationRepository();
+            Operations = CollectionViewSource.GetDefaultView(context.GetOperations());
         }
+
+        public ICollectionView Operations
+        {
+            get { return (ICollectionView)GetValue(OperationsProperty); }
+            set { SetValue(OperationsProperty, value); }
+        }
+
+        public static readonly DependencyProperty OperationsProperty =
+            DependencyProperty.Register("Operations", typeof(ICollectionView), typeof(HistoryPageViewModel), new PropertyMetadata(null));
+
+
     }
 }

@@ -35,12 +35,12 @@ namespace HomeAccounting.Views
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
-            Operation currentOperation = new Operation();
-            HomePageViewModel homePageViewModel = new HomePageViewModel();
-            currentOperation.OperationType = homePageViewModel.OperationType;
+            //Operation currentOperation = new Operation();
+            //HomePageViewModel homePageViewModel = new HomePageViewModel();
+            //currentOperation.OperationType = homePageViewModel.OperationType;
 
        
-            context.AddOperation(currentOperation);
+            //context.AddOperation(currentOperation);
         }
     }
 }
