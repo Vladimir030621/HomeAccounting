@@ -27,17 +27,13 @@ namespace HomeAccounting.Views
         {
             InitializeComponent();
 
-            Loaded += HistoryPage_Loaded;
-        }
-
-        private void HistoryPage_Loaded(object sender, RoutedEventArgs e)
-        {
             DataContext = new HistoryPageViewModel();
+            //Loaded += HistoryPage_Loaded;
         }
 
-        //private void List_Loaded(object sender, RoutedEventArgs e)
+        //private void HistoryPage_Loaded(object sender, RoutedEventArgs e)
         //{
-        //    lbOperation.ItemsSource = context.GetOperations();
+        //    DataContext = new HistoryPageViewModel();
         //}
     }
 }

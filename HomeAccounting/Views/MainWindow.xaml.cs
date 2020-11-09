@@ -27,14 +27,19 @@ namespace HomeAccounting.Views
             InitializeComponent();  
         }
 
-        private void HomeButton_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Content = new HomePage();
-        }
-
         private void HistoryButton_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = new HistoryPage();
+        }
+
+        private void AddIncome_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new AddIncomePage();
+        }
+
+        private void AddExpense_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new AddExpensePage();
         }
     }
 }

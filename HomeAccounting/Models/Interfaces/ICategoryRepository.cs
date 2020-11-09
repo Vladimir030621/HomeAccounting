@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HomeAccounting.ViewModels
+namespace HomeAccounting.Models.Interfaces
 {
-    public class MainWindowViewModel 
+    public interface ICategoryRepository
     {
-
+        IEnumerable<Category> GetCategories();
     }
 }

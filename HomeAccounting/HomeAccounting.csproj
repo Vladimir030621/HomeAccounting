@@ -65,19 +65,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Migrations\202011091413199_ChangedDateTime.cs" />
+    <Compile Include="Migrations\202011091413199_ChangedDateTime.designer.cs">
+      <DependentUpon>202011091413199_ChangedDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Interfaces\ICategoryRepository.cs" />
+    <Compile Include="Models\Repositories\CategoryRepository.cs" />
+    <Compile Include="ViewModels\AddExpenseViewModel.cs" />
+    <Compile Include="ViewModels\AddIncomeViewModel.cs" />
     <Compile Include="ViewModels\HistoryPageViewModel.cs" />
     <Compile Include="ViewModels\HomePageViewModel.cs" />
-    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\AddExpensePage.xaml.cs">
+      <DependentUpon>AddExpensePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddIncomePage.xaml.cs">
+      <DependentUpon>AddIncomePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\HistoryPage.xaml.cs">
       <DependentUpon>HistoryPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\HomePage.xaml.cs">
-      <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -110,6 +120,9 @@
     <EmbeddedResource Include="Migrations\202011080657471_Initial.resx">
       <DependentUpon>202011080657471_Initial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011091413199_ChangedDateTime.resx">
+      <DependentUpon>202011091413199_ChangedDateTime.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -125,11 +138,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Page Include="Views\HistoryPage.xaml">
+    <Page Include="Views\AddExpensePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\HomePage.xaml">
+    <Page Include="Views\AddIncomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\HistoryPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
