@@ -11,7 +11,6 @@ namespace HomeAccounting.ViewModels
 {
     class AddIncomeViewModel
     {
-        //private ICategoryRepository context;
         private DataManager dataManager;
 
         public List<string> CategoryListIncome { get; set; }
@@ -19,8 +18,6 @@ namespace HomeAccounting.ViewModels
         public AddIncomeViewModel()
         {
             dataManager = new DataManager();
-
-            //context = new CategoryRepository();
 
             CategoryListIncome = dataManager.Categories.GetCategories()
                 .Where(c => c.OperationType == "Income")

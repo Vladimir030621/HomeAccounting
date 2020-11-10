@@ -41,6 +41,12 @@ namespace HomeAccounting.Views
         {
             MainFrame.Content = new AddExpensePage();
         }
+
+        private void GoToTest_Click(object sender, RoutedEventArgs e)
+        {
+            TestinWindow testin = new TestinWindow();
+            testin.Show();
+        }
     }
 }
 

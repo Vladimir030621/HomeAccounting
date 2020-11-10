@@ -23,6 +23,7 @@
             <MenuItem Header="Home" Width="200" Height="70">
                 <MenuItem Header="Add Income" x:Name="AddIncome" Click="AddIncome_Click"/>
                 <MenuItem Header="Add Expense" x:Name="AddExpense" Click="AddExpense_Click"/>
+                <MenuItem Header="Test" Click="GoToTest_Click"/>
             </MenuItem>
         </Menu>
         

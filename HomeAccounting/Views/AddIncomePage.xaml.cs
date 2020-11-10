@@ -25,7 +25,6 @@ namespace HomeAccounting.Views
     /// </summary>
     public partial class AddIncomePage : Page
     {
-        //private IOperationRepository context;
 
         private DataManager dataManager;
 
@@ -37,7 +36,6 @@ namespace HomeAccounting.Views
 
             dataManager = new DataManager();
 
-            //context = new OperationRepository();
         }
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)

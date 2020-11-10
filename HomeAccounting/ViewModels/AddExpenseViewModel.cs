@@ -1,4 +1,5 @@
-﻿using HomeAccounting.Models.Interfaces;
+﻿using HomeAccounting.Models;
+using HomeAccounting.Models.Interfaces;
 using HomeAccounting.Models.Repositories;
 using System;
 using System.Collections.Generic;
@@ -10,15 +11,15 @@ namespace HomeAccounting.ViewModels
 {
     class AddExpenseViewModel 
     {
-        private ICategoryRepository context;
+        private DataManager dataManager;
 
         public List<string> CategoryListExpense { get; set; }
 
         public AddExpenseViewModel()
         {
-            context = new CategoryRepository();
+            dataManager = new DataManager();
 
-            CategoryListExpense = context.GetCategories()
+            CategoryListExpense = dataManager.Categories.GetCategories()
                 .Where(c => c.OperationType == "Expense")
                 .Select(s => s.CategoryName)
                 .ToList();
