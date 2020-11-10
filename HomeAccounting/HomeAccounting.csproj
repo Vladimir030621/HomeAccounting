@@ -69,12 +69,12 @@
     <Compile Include="Migrations\202011091413199_ChangedDateTime.designer.cs">
       <DependentUpon>202011091413199_ChangedDateTime.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\DataManager.cs" />
     <Compile Include="Models\Interfaces\ICategoryRepository.cs" />
     <Compile Include="Models\Repositories\CategoryRepository.cs" />
     <Compile Include="ViewModels\AddExpenseViewModel.cs" />
     <Compile Include="ViewModels\AddIncomeViewModel.cs" />
     <Compile Include="ViewModels\HistoryPageViewModel.cs" />
-    <Compile Include="ViewModels\HomePageViewModel.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

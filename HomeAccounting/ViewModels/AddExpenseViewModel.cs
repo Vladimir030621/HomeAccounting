@@ -18,7 +18,10 @@ namespace HomeAccounting.ViewModels
         {
             context = new CategoryRepository();
 
-            CategoryListExpense = context.GetCategories().Where(c => c.OperationType == "Expense").Select(s => s.CategoryName).ToList();
+            CategoryListExpense = context.GetCategories()
+                .Where(c => c.OperationType == "Expense")
+                .Select(s => s.CategoryName)
+                .ToList();
         }
     }
 }

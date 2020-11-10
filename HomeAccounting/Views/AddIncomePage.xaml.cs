@@ -25,7 +25,9 @@ namespace HomeAccounting.Views
     /// </summary>
     public partial class AddIncomePage : Page
     {
-        private IOperationRepository context;
+        //private IOperationRepository context;
+
+        private DataManager dataManager;
 
         public AddIncomePage()
         {
@@ -33,7 +35,9 @@ namespace HomeAccounting.Views
 
             DataContext = new AddIncomeViewModel();
 
-            context = new OperationRepository();
+            dataManager = new DataManager();
+
+            //context = new OperationRepository();
         }
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
@@ -63,7 +67,7 @@ namespace HomeAccounting.Views
 
             if(IsParsed && CheckNotNullOrWhiteSpace(Category.Text) && CheckNotNullOrWhiteSpace(Sum.Text))
             {
-                context.AddOperation(currentOperation);
+                dataManager.Operations.AddOperation(currentOperation);
 
                 SuccessNotification();
             }  

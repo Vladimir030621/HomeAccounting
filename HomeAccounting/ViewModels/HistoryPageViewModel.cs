@@ -1,4 +1,5 @@
-﻿using HomeAccounting.Models.Interfaces;
+﻿using HomeAccounting.Models;
+using HomeAccounting.Models.Interfaces;
 using HomeAccounting.Models.Repositories;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,16 @@ namespace HomeAccounting.ViewModels
     public class HistoryPageViewModel : DependencyObject
     {
         private IOperationRepository context;
+
+        private DataManager dataManager;
         
         public HistoryPageViewModel()
         {
-            context = new OperationRepository();
-            Operations = CollectionViewSource.GetDefaultView(context.GetOperations());
+            dataManager = new DataManager();
+            Operations = CollectionViewSource.GetDefaultView(dataManager.Operations.GetOperations());
+
+            //context = new OperationRepository();
+            //Operations = CollectionViewSource.GetDefaultView(context.GetOperations());
         }
 
         public ICollectionView Operations
