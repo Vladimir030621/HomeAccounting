@@ -7,13 +7,13 @@ namespace HomeAccounting.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class ChangedDateTime : IMigrationMetadata
+    public sealed partial class Initial : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangedDateTime));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initial));
         
         string IMigrationMetadata.Id
         {
-            get { return "202011091413199_ChangedDateTime"; }
+            get { return "202011101223216_Initial"; }
         }
         
         string IMigrationMetadata.Source

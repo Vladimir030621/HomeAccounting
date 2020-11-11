@@ -21,5 +21,7 @@ namespace HomeAccounting.Models
         public DateTime Date { get; set; }
 
         public string Commentary { get; set; }
+
+        public List<string> Categories { get; set; }
     }
 }

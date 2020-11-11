@@ -1,5 +1,4 @@
-﻿using HomeAccounting.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,15 +15,13 @@ using System.Windows.Shapes;
 namespace HomeAccounting.Views
 {
     /// <summary>
-    /// Логика взаимодействия для TestinWindow.xaml
+    /// Логика взаимодействия для TestWindow.xaml
     /// </summary>
-    public partial class TestinWindow : Window
+    public partial class TestWindow : Window
     {
-        public TestinWindow()
+        public TestWindow()
         {
             InitializeComponent();
-
-            DataContext = new TestinViewModel();
         }
     }
 }

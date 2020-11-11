@@ -44,6 +44,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialDesignColors, Version=1.2.7.1979, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.7\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=3.2.0.1979, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.3.2.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -67,17 +73,18 @@
     </ApplicationDefinition>
     <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\LambdaCommand.cs" />
-    <Compile Include="Migrations\202011091413199_ChangedDateTime.cs" />
-    <Compile Include="Migrations\202011091413199_ChangedDateTime.designer.cs">
-      <DependentUpon>202011091413199_ChangedDateTime.cs</DependentUpon>
+    <Compile Include="Migrations\202011101223216_Initial.cs" />
+    <Compile Include="Migrations\202011101223216_Initial.designer.cs">
+      <DependentUpon>202011101223216_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\DataManager.cs" />
     <Compile Include="Models\Interfaces\ICategoryRepository.cs" />
     <Compile Include="Models\Repositories\CategoryRepository.cs" />
     <Compile Include="ViewModels\AddExpenseViewModel.cs" />
+    <Compile Include="ViewModels\AddIncomeCategoryViewModel.cs" />
     <Compile Include="ViewModels\AddIncomeViewModel.cs" />
     <Compile Include="ViewModels\HistoryPageViewModel.cs" />
-    <Compile Include="ViewModels\TestinViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -85,6 +92,9 @@
     </Compile>
     <Compile Include="Views\AddExpensePage.xaml.cs">
       <DependentUpon>AddExpensePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddIncomeCategoryWindow.xaml.cs">
+      <DependentUpon>AddIncomeCategoryWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AddIncomePage.xaml.cs">
       <DependentUpon>AddIncomePage.xaml</DependentUpon>
@@ -95,15 +105,11 @@
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TestinWindow.xaml.cs">
-      <DependentUpon>TestinWindow.xaml</DependentUpon>
+    <Compile Include="Views\TestWindow.xaml.cs">
+      <DependentUpon>TestWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\202011080657471_Initial.cs" />
-    <Compile Include="Migrations\202011080657471_Initial.designer.cs">
-      <DependentUpon>202011080657471_Initial.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppDBContext.cs" />
     <Compile Include="Models\Category.cs" />
@@ -123,11 +129,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\202011080657471_Initial.resx">
-      <DependentUpon>202011080657471_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202011091413199_ChangedDateTime.resx">
-      <DependentUpon>202011091413199_ChangedDateTime.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202011101223216_Initial.resx">
+      <DependentUpon>202011101223216_Initial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -148,6 +151,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AddIncomeCategoryWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AddIncomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -160,7 +167,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\TestinWindow.xaml">
+    <Page Include="Views\TestWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -172,6 +179,8 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
     <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets'))" />
   </Target>
   <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.3.2.0\build\MaterialDesignThemes.targets')" />
 </Project>

@@ -3,31 +3,99 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:vm="clr-namespace:HomeAccounting.ViewModels"
         xmlns:local="clr-namespace:HomeAccounting.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="" Height="450" Width="800" ResizeMode="NoResize" WindowStyle="None" WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    
+    <Grid Height="496">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="600"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="70"/>
-            <RowDefinition Height="70"/>
-            <RowDefinition/>
+            <RowDefinition MaxHeight="70"/>
+            <RowDefinition MaxHeight="70"/>
+            <RowDefinition MaxHeight="70"/>
+            <RowDefinition MaxHeight="70"/>
         </Grid.RowDefinitions>
-        <!--<Button x:Name="HomeButton" Grid.Column="0" Grid.Row="1" Content="Home" Click="HomeButton_Click"/>-->
-        <Menu Grid.Column="0" Grid.Row="1">
-            <MenuItem Header="Home" Width="200" Height="70">
-                <MenuItem Header="Add Income" x:Name="AddIncome" Click="AddIncome_Click"/>
-                <MenuItem Header="Add Expense" x:Name="AddExpense" Click="AddExpense_Click"/>
-                <MenuItem Header="Test" Click="GoToTest_Click"/>
-            </MenuItem>
-        </Menu>
+
+        <Grid Background="#FF2F8EA2" Grid.ColumnSpan="2"  Height="70">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="270"/>
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="50"/>
+            </Grid.ColumnDefinitions>
+           
+            <materialDesign:PackIcon Grid.Column="0"  Kind="HomeAnalytics" Width="40px" Height="40px" Foreground="#FFFFFBFB" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10 0 0 0"/>
+
+            <TextBlock Grid.Column="1" Foreground="#FFFBFBFB" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" Margin="10 0 0 0">Home Accounting</TextBlock>
+
+            <TextBlock Grid.Column="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="230"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock HorizontalAlignment="Right" FontSize="25" FontWeight="Bold" Foreground="#FFFBFBFB"   VerticalAlignment="Center" Margin="0 0 10 0 ">Balance:</TextBlock>
+                    <TextBlock Grid.Column="1" Text="{Binding Balance}" HorizontalAlignment="Right" FontSize="25" FontWeight="Bold" Foreground="#FFFBFBFB" VerticalAlignment="Center" />
+                </Grid>
+            </TextBlock>
+            
+            <Button Grid.Column="3" HorizontalAlignment="Right" Command="{Binding CloseWindowCommand}" Background="#FF2F8EA2" BorderThickness="0" >
+                <materialDesign:PackIcon Kind="CloseBoxOutline" Background="#FF2F8EA2" />
+            </Button>
+        </Grid>
         
-        <Button x:Name="HistoryButton" Grid.Column="0" Grid.Row="2" Content="History" Click="HistoryButton_Click"/>
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1" Grid.Column="1" Grid.RowSpan="3"/>
+
+        <Border Grid.Row="1" >
+            <Button  Background="#FF2F8EA2"  x:Name="IncomeBtn" Click="AddIncome_Click" Height="50px" BorderThickness="0" VerticalAlignment="Bottom">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50px"/>
+                        <ColumnDefinition Width="150px"/>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon HorizontalAlignment="Left" Grid.Column="0"  Kind="PencilPlus" Width="30px" Height="30px"/>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="20"><Run Text="Add Income"/></TextBlock>
+                </Grid>
+            </Button>
+        </Border>
+
+        <Border Grid.Row="2" >
+            <Button  Background="#FF2F8EA2"    x:Name="ExpanseBtn" Click="AddExpense_Click" Height="50px" BorderThickness="0" VerticalAlignment="Bottom">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50px"/>
+                        <ColumnDefinition Width="150px"/>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon HorizontalAlignment="Left" Grid.Column="0"  Kind="PencilMinus" Width="30px" Height="30px"/>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="20"><Run Text="Add Expense"/></TextBlock>
+                </Grid>
+            </Button>
+        </Border>
+
+
+        <Border Grid.Row="3" >
+            <Button  Background="#FF2F8EA2"   x:Name="history_button" Click="HistoryButton_Click" Height="50px" BorderThickness="0" VerticalAlignment="Bottom">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50px"/>
+                        <ColumnDefinition Width="150px"/>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon HorizontalAlignment="Left" Grid.Column="0"  Kind="Table" Width="30px" Height="30px"/>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="20"><Run Text="History"/></TextBlock>
+                </Grid>
+            </Button>
+        </Border>
+
+        <StackPanel  Grid.Row="1" Grid.Column="1"  Grid.RowSpan="3" Grid.ColumnSpan="2">
+            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+        </StackPanel>
+
     </Grid>
 </Window>

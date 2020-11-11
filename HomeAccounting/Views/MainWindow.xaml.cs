@@ -1,4 +1,5 @@
-﻿using HomeAccounting.Models.Interfaces;
+﻿using HomeAccounting.Models;
+using HomeAccounting.Models.Interfaces;
 using HomeAccounting.Models.Repositories;
 using System;
 using System.Collections.Generic;
@@ -22,9 +23,10 @@ namespace HomeAccounting.Views
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
-            InitializeComponent();  
+            InitializeComponent();
         }
 
         private void HistoryButton_Click(object sender, RoutedEventArgs e)
@@ -42,11 +44,6 @@ namespace HomeAccounting.Views
             MainFrame.Content = new AddExpensePage();
         }
 
-        private void GoToTest_Click(object sender, RoutedEventArgs e)
-        {
-            TestinWindow testin = new TestinWindow();
-            testin.Show();
-        }
     }
 }
 

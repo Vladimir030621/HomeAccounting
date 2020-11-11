@@ -25,7 +25,7 @@
                         OperationType = c.String(),
                         Category = c.String(),
                         Sum = c.Decimal(nullable: false, precision: 18, scale: 2),
-                        Date = c.DateTime(nullable: false),
+                        Date = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                         Commentary = c.String(),
                     })
                 .PrimaryKey(t => t.Id);

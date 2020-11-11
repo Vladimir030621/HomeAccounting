@@ -20,5 +20,11 @@ namespace HomeAccounting.Models.Repositories
         {
             return context.Categories.ToList();
         }
+
+        public void AddCategory(Category category)
+        {
+            context.Categories.Add(category);
+            context.SaveChanges();
+        }
     }
 }

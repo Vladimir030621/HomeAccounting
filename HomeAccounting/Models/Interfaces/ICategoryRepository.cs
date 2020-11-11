@@ -9,5 +9,7 @@ namespace HomeAccounting.Models.Interfaces
     public interface ICategoryRepository
     {
         IEnumerable<Category> GetCategories();
+
+        void AddCategory(Category category);
     }
 }

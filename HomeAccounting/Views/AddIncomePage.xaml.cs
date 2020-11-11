@@ -60,7 +60,7 @@ namespace HomeAccounting.Views
 
             currentOperation.OperationType = "Income";
             currentOperation.Category = Category.Text;
-            currentOperation.Date = Date.DisplayDate;
+            currentOperation.Date = Date.DisplayDate.Date;
             currentOperation.Commentary = Commentary.Text;
 
             if(IsParsed && CheckNotNullOrWhiteSpace(Category.Text) && CheckNotNullOrWhiteSpace(Sum.Text))
@@ -86,6 +86,12 @@ namespace HomeAccounting.Views
             {
                 return true;
             }
+        }
+
+        private void AddCategory_Click(object sender, RoutedEventArgs e)
+        {
+            AddIncomeCategoryWindow addIncomeCategoryWindow = new AddIncomeCategoryWindow();
+            addIncomeCategoryWindow.Show();
         }
     }
 }

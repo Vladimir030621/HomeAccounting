@@ -15,17 +15,12 @@ namespace HomeAccounting.ViewModels
 {
     public class HistoryPageViewModel : DependencyObject
     {
-        private IOperationRepository context;
-
         private DataManager dataManager;
         
         public HistoryPageViewModel()
         {
             dataManager = new DataManager();
             Operations = CollectionViewSource.GetDefaultView(dataManager.Operations.GetOperations());
-
-            //context = new OperationRepository();
-            //Operations = CollectionViewSource.GetDefaultView(context.GetOperations());
         }
 
         public ICollectionView Operations
@@ -36,7 +31,6 @@ namespace HomeAccounting.ViewModels
 
         public static readonly DependencyProperty OperationsProperty =
             DependencyProperty.Register("Operations", typeof(ICollectionView), typeof(HistoryPageViewModel), new PropertyMetadata(null));
-
 
     }
 }

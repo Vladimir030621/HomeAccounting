@@ -12,6 +12,6 @@ namespace HomeAccounting.Models
 
         public string CategoryName { get; set; }
 
-        public string OperationType { get; set; }
+        public string OperationType{ get; set; }
     }
 }

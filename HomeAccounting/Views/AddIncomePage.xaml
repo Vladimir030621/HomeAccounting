@@ -37,18 +37,17 @@
             </StackPanel>
             <StackPanel Grid.Column="1" Grid.Row="2" Grid.RowSpan="2">
                 <TextBlock>Choose the date</TextBlock>
-                <Calendar x:Name="Date" IsTodayHighlighted="True">
-                    
-                </Calendar>
+                <DatePicker x:Name="Date"/>
             </StackPanel>
             <StackPanel Grid.Column="1" Grid.Row="4">
                 <TextBlock>Add commentary</TextBlock>
-                <TextBox x:Name="Commentary">
-                    
-                </TextBox>
+                <TextBox x:Name="Commentary"/>
             </StackPanel>
             <StackPanel Grid.Column="1" Grid.Row="5" >
                 <Button x:Name="ConfirmButton" Content="Confirm" Click="ConfirmButton_Click"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Grid.Row="6">
+                <Button Content="+" x:Name="AddCategory" Click="AddCategory_Click"/>
             </StackPanel>
         </Grid>
     </Grid>
