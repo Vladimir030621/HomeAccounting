@@ -7,15 +7,21 @@
         xmlns:cmd="clr-namespace:HomeAccounting.Commands"
         xmlns:local="clr-namespace:HomeAccounting.Views"
         mc:Ignorable="d"
-        Title="AddIncomeCategoryWindow" Height="450" Width="800">
+        Title="Home Accounting" Height="250" Width="360" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <vm:AddIncomeCategoryViewModel/>
     </Window.DataContext>
+    <Window.Resources>
+        <Style x:Key="GreenBoldFont">
+            <Setter Property="ItemsControl.FontSize" Value="20"/>
+            <Setter Property="ItemsControl.FontWeight" Value="Bold"/>
+            <Setter Property="ItemsControl.Foreground" Value="#FF2F8EA2"/>
+            <Setter Property="ItemsControl.VerticalAlignment" Value="Bottom"/>
+        </Style>
+    </Window.Resources>
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -23,16 +29,27 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Column="1" Grid.ColumnSpan="2">
-            <TextBlock>Add Category</TextBlock>
-            <TextBox Text="{Binding CategoryToSave}"/>
+        
+        <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Width="230" Margin="0 20 0 0 ">
+            <TextBlock Style="{StaticResource GreenBoldFont}" HorizontalAlignment="Left">Add Category</TextBlock>
+            <TextBox  Text="{Binding CategoryToSave}" Margin="0 20 0 0"/>
         </StackPanel>
-        <StackPanel Grid.Column="1" Grid.Row="1">
-            <Button Content="Save" Command="{Binding SaveIncomeCategoryCommand}" 
-                    CommandParameter="{Binding CategoryToSave}"/>
-        </StackPanel>
-        <StackPanel Grid.Column="2" Grid.Row="1">
-            <Button Content = "Cancel" Command="{Binding CloseWindowCommand}"/>
-        </StackPanel>
+
+        <Border Grid.Row="1" HorizontalAlignment="Right" Margin="0 0 15 10">
+            <Button  Background="#FF2F8EA2" Command="{Binding SaveIncomeCategoryCommand}" 
+                    CommandParameter="{Binding CategoryToSave}" Height="30px" Width="100" BorderThickness="0" VerticalAlignment="Center" >
+                <Grid>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="16" Text="Save"/>
+                </Grid>
+            </Button>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Margin="15 0 0 10 ">
+            <Button  Background="#FF2F8EA2"  Height="30px" Width="100" BorderThickness="0" VerticalAlignment="Center" Click="CalcelButton_Click">
+                <Grid>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="16" Text="Cancel"/>
+                </Grid>
+            </Button>
+        </Border>
     </Grid>
 </Window>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HomeAccounting.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,16 @@ namespace HomeAccounting.Views
         public AddIncomeCategoryWindow()
         {
             InitializeComponent();
+
+            AddIncomeCategoryViewModel vm = new AddIncomeCategoryViewModel();
+            this.DataContext = vm;
+            if (vm.CloseAction == null)
+                vm.CloseAction = new Action(this.Close);
+        }
+
+        private void CalcelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

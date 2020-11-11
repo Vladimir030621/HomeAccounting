@@ -2,6 +2,7 @@
 using HomeAccounting.Models.Interfaces;
 using HomeAccounting.Models.Repositories;
 using HomeAccounting.ViewModels;
+using MaterialDesignColors.Recommended;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,8 +25,6 @@ namespace HomeAccounting.Views
     /// </summary>
     public partial class AddExpensePage : Page
     {
-        //private IOperationRepository context;
-
         private DataManager dataManager;
 
         public AddExpensePage()
@@ -36,7 +35,6 @@ namespace HomeAccounting.Views
 
             dataManager = new DataManager();
 
-            //context = new OperationRepository();
         }
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
@@ -70,6 +68,11 @@ namespace HomeAccounting.Views
 
                 SuccessNotification();
             }
+
+            Category.Text = "";
+            Sum.Text = "";
+            Date.SelectedDate = null;
+            Commentary.Text = "";
         }
 
         private void SuccessNotification()
@@ -87,6 +90,12 @@ namespace HomeAccounting.Views
             {
                 return true;
             }
+        }
+
+        private void AddCategory_Click(object sender, RoutedEventArgs e)
+        {
+            AddIncomeCategoryWindow addIncomeCategoryWindow = new AddIncomeCategoryWindow();
+            addIncomeCategoryWindow.Show();
         }
     }
 }

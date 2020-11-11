@@ -16,6 +16,8 @@ namespace HomeAccounting.ViewModels
     {
         private DataManager dataManager;
 
+        public Action CloseAction { get; set; }
+
         public AddIncomeCategoryViewModel()
         {
             dataManager = new DataManager();
@@ -39,7 +41,7 @@ namespace HomeAccounting.ViewModels
             string currentCategory = (string)p;
             if (string.IsNullOrWhiteSpace(nameof(currentCategory)))
             {
-                throw new ArgumentNullException("Incorrect input", nameof(currentCategory));
+                throw new ArgumentNullException("Category name cannot be empty", nameof(currentCategory));
             }
 
             Category category = new Category();
@@ -49,7 +51,7 @@ namespace HomeAccounting.ViewModels
             if(currentCategory != null)
             {
                 dataManager.Categories.AddCategory(category);
-                Application.Current.Shutdown();
+                CloseAction();
             }    
         }
 

@@ -12,7 +12,7 @@
         <vm:MainWindowViewModel/>
     </Window.DataContext>
     
-    <Grid Height="496">
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="600"/>
@@ -52,8 +52,7 @@
             </Button>
         </Grid>
         
-
-        <Border Grid.Row="1" >
+        <Border Grid.Row="1" Grid.Column="0">
             <Button  Background="#FF2F8EA2"  x:Name="IncomeBtn" Click="AddIncome_Click" Height="50px" BorderThickness="0" VerticalAlignment="Bottom">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -66,7 +65,7 @@
             </Button>
         </Border>
 
-        <Border Grid.Row="2" >
+        <Border Grid.Row="2" Grid.Column="0">
             <Button  Background="#FF2F8EA2"    x:Name="ExpanseBtn" Click="AddExpense_Click" Height="50px" BorderThickness="0" VerticalAlignment="Bottom">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -79,8 +78,7 @@
             </Button>
         </Border>
 
-
-        <Border Grid.Row="3" >
+        <Border Grid.Row="3" Grid.Column="0">
             <Button  Background="#FF2F8EA2"   x:Name="history_button" Click="HistoryButton_Click" Height="50px" BorderThickness="0" VerticalAlignment="Bottom">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -93,7 +91,7 @@
             </Button>
         </Border>
 
-        <StackPanel  Grid.Row="1" Grid.Column="1"  Grid.RowSpan="3" Grid.ColumnSpan="2">
+        <StackPanel Grid.Row="1" Grid.Column="1"  Grid.RowSpan="3" Margin="0,0,0,-166">
             <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
         </StackPanel>
 

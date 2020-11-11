@@ -60,7 +60,7 @@ namespace HomeAccounting.Views
 
             currentOperation.OperationType = "Income";
             currentOperation.Category = Category.Text;
-            currentOperation.Date = Date.DisplayDate.Date;
+            currentOperation.Date = Date.DisplayDate;
             currentOperation.Commentary = Commentary.Text;
 
             if(IsParsed && CheckNotNullOrWhiteSpace(Category.Text) && CheckNotNullOrWhiteSpace(Sum.Text))
@@ -68,7 +68,12 @@ namespace HomeAccounting.Views
                 dataManager.Operations.AddOperation(currentOperation);
 
                 SuccessNotification();
-            }  
+            }
+
+            Category.Text = "";
+            Sum.Text = "";
+            Date.SelectedDate = null;
+            Commentary.Text = "";
         }
 
         private void SuccessNotification()

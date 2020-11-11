@@ -3,53 +3,76 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       xmlns:local="clr-namespace:HomeAccounting.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="380" d:DesignWidth="800"
       Title="AddExpensePage">
+    <Page.Resources>
+        <Style x:Key="GreenBoldFont">
+            <Setter Property="ItemsControl.FontSize" Value="16"/>
+            <Setter Property="ItemsControl.FontWeight" Value="Bold"/>
+            <Setter Property="ItemsControl.Foreground" Value="#FF2F8EA2"/>
+            <Setter Property="ItemsControl.VerticalAlignment" Value="Bottom"/>
+        </Style>
+    </Page.Resources>
 
-    <Grid>
-        <Grid >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <StackPanel Grid.Column="0" Grid.Row="0">
-                <TextBlock x:Name="ExpenseSuccessNotification">Add Expense</TextBlock>
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Grid.ColumnSpan="3">
+            <StackPanel>
+                <TextBlock Style="{StaticResource GreenBoldFont}" FontSize="20" x:Name="ExpenseSuccessNotification" HorizontalAlignment="Center">Add Expense</TextBlock>
             </StackPanel>
-            <StackPanel Grid.Column="1" Grid.Row="0">
-                <TextBlock>Category</TextBlock>
+        </Grid>
+
+        <Border Grid.Column="2">
+            <Button  Background="#FF2F8EA2"  x:Name="AddCategoryButton" Click="AddCategory_Click"  ToolTip="Add Category" Height="40" Width="40" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 40 0 0">
+                <TextBlock FontSize="30" Margin="-8,-7,-8,4">+</TextBlock>
+            </Button>
+        </Border>
+
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="1">
+                <TextBlock Style="{StaticResource GreenBoldFont}">Category</TextBlock>
                 <ComboBox x:Name="Category" ItemsSource="{Binding CategoryListExpense}"/>
             </StackPanel>
-            <StackPanel Grid.Column="1" Grid.Row="1">
-                <TextBlock>Sum</TextBlock>
+            <StackPanel  Grid.Row="2">
+                <TextBlock Style="{StaticResource GreenBoldFont}">Sum</TextBlock>
                 <TextBox x:Name="Sum" VerticalAlignment="Center"/>
             </StackPanel>
-            <StackPanel Grid.Column="1" Grid.Row="2" Grid.RowSpan="2">
-                <TextBlock>Choose the date</TextBlock>
-                <Calendar x:Name="Date" IsTodayHighlighted="True">
+            <StackPanel  Grid.Row="3">
+                <TextBlock Style="{StaticResource GreenBoldFont}">Choose the date</TextBlock>
+                <DatePicker x:Name="Date"/>
+            </StackPanel>
+            <StackPanel  Grid.Row="4">
+                <TextBlock Style="{StaticResource GreenBoldFont}">Add commentary</TextBlock>
+                <TextBox x:Name="Commentary" MaxLength="30"/>
+            </StackPanel>
 
-                </Calendar>
-            </StackPanel>
-            <StackPanel Grid.Column="1" Grid.Row="4">
-                <TextBlock>Add commentary</TextBlock>
-                <TextBox x:Name="Commentary">
+            <Border Grid.Row="5">
+                <Button  Background="#FF2F8EA2"  x:Name="ConfirmButton" Click="ConfirmButton_Click" Height="40px" BorderThickness="0" VerticalAlignment="Bottom">
+                    <Grid>
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="20" Text="Confirm"/>
+                    </Grid>
+                </Button>
+            </Border>
 
-                </TextBox>
-            </StackPanel>
-            <StackPanel Grid.Column="1" Grid.Row="5" >
-                <Button x:Name="ConfirmButton" Content="Confirm" Click="ConfirmButton_Click"/>
-            </StackPanel>
         </Grid>
     </Grid>
 </Page>
