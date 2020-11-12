@@ -39,6 +39,8 @@ namespace HomeAccounting.Views
 
         }
 
+        #region Add Income operation
+
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
             bool IsParsed = false;
@@ -61,7 +63,7 @@ namespace HomeAccounting.Views
 
             if (!CheckNotNullOrWhiteSpace(Date.SelectedDate.ToString()))
             {
-                MessageBox.Show("Choose a date");
+                MessageBox.Show("Choose a Date");
             }
             else if (Date.SelectedDate is DateTime)
             {
@@ -71,7 +73,6 @@ namespace HomeAccounting.Views
             {
                 MessageBox.Show("Incorrect 'Date' input");
             }
-
 
             currentOperation.OperationType = "Income";
             currentOperation.Category = Category.Text;
@@ -90,11 +91,15 @@ namespace HomeAccounting.Views
             }
         }
 
+        #endregion
+
+        /// <summary> Show messageBox if succeeded /// </summary>
         private void SuccessNotification()
         {
             IncomeSuccessNotification.Text = "Operation completed successfully";
         }
 
+        /// <summary> Checking for a null /// </summary>
         private bool CheckNotNullOrWhiteSpace(string input)
         {
             if (string.IsNullOrWhiteSpace(input))
@@ -107,6 +112,7 @@ namespace HomeAccounting.Views
             }
         }
 
+        /// <summary> Open add category window </summary>
         private void AddCategory_Click(object sender, RoutedEventArgs e)
         {
             AddIncomeCategoryWindow addIncomeCategoryWindow = new AddIncomeCategoryWindow();

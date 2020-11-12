@@ -29,16 +29,19 @@ namespace HomeAccounting.Views
             InitializeComponent();
         }
 
+        /// <summary> Open History page </summary>
         private void HistoryButton_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = new HistoryPage();
         }
 
+        /// <summary> Open Add income operation page </summary>
         private void AddIncome_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = new AddIncomePage();
         }
 
+        /// <summary> Open Add expense operation page </summary>
         private void AddExpense_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = new AddExpensePage();

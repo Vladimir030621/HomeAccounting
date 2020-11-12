@@ -23,6 +23,7 @@ namespace HomeAccounting.ViewModels
             Operations = CollectionViewSource.GetDefaultView(dataManager.Operations.GetOperations());
         }
 
+        #region FilterText dependency object property
 
         public string FilterText
         {
@@ -32,6 +33,10 @@ namespace HomeAccounting.ViewModels
 
         public static readonly DependencyProperty FilterTextProperty =
             DependencyProperty.Register("FilterText", typeof(string), typeof(HistoryPageViewModel), new PropertyMetadata("", FilterText_Changed));
+
+        #endregion
+
+        #region FilterText_changed methods
 
         private static void FilterText_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -58,6 +63,10 @@ namespace HomeAccounting.ViewModels
             return result;
         }
 
+        #endregion
+
+        #region Operations dependency object property
+
         public ICollectionView Operations
         {
             get { return (ICollectionView)GetValue(OperationsProperty); }
@@ -66,7 +75,7 @@ namespace HomeAccounting.ViewModels
 
         public static readonly DependencyProperty OperationsProperty =
             DependencyProperty.Register("Operations", typeof(ICollectionView), typeof(HistoryPageViewModel), new PropertyMetadata(null));
-
+        #endregion
 
     }
 }

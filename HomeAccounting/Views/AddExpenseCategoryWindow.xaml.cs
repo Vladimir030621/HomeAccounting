@@ -16,15 +16,15 @@ using System.Windows.Shapes;
 namespace HomeAccounting.Views
 {
     /// <summary>
-    /// Логика взаимодействия для AddIncomeCategoryWindow.xaml
+    /// Логика взаимодействия для AddExpenseCategoryWindow.xaml
     /// </summary>
-    public partial class AddIncomeCategoryWindow : Window
+    public partial class AddExpenseCategoryWindow : Window
     {
-        public AddIncomeCategoryWindow()
+        public AddExpenseCategoryWindow()
         {
             InitializeComponent();
 
-            AddIncomeCategoryViewModel vm = new AddIncomeCategoryViewModel();
+            AddExpenseCategoryViewModel vm = new AddExpenseCategoryViewModel();
             this.DataContext = vm;
             if (vm.CloseAction == null)
                 vm.CloseAction = new Action(this.Close);

@@ -15,18 +15,22 @@ namespace HomeAccounting.ViewModels
     class MainWindowViewModel : DependencyObject
     {
         private DataManager dataManager;
+        private decimal currentBalance;
 
         public MainWindowViewModel()
         {
             dataManager = new DataManager();
 
-            var currentBalance = dataManager.Operations.GetOperations().Where(o => o.OperationType == "Income").Select(o => o.Sum).Sum(s => s) -
+            currentBalance = dataManager.Operations.GetOperations().Where(o => o.OperationType == "Income").Select(o => o.Sum).Sum(s => s) -
                 dataManager.Operations.GetOperations().Where(o => o.OperationType == "Expense").Select(o => o.Sum).Sum(s => s);
 
             Balance = currentBalance.ToString("### ### ### ###");
 
             CloseWindowCommand = new LambdaCommand(OnCloseWindowCommandExecuted, CanCloseWindowCommandExecute);
+            RefreshBalanceCommand = new LambdaCommand(OnRefreshBalanceCommandExecuted, CanRefreshBalanceCommandExecute);
         }
+
+        #region Balance Dependency object property
 
         public string Balance
         {
@@ -36,6 +40,29 @@ namespace HomeAccounting.ViewModels
 
         public static readonly DependencyProperty BalanceProperty =
             DependencyProperty.Register("Balance", typeof(string), typeof(MainWindowViewModel), new PropertyMetadata(null));
+
+        #endregion
+
+
+        #region Refresh balance command
+
+        public ICommand RefreshBalanceCommand { get; }
+
+        private void OnRefreshBalanceCommandExecuted(object p)
+        {
+            currentBalance = dataManager.Operations.GetOperations().Where(o => o.OperationType == "Income").Select(o => o.Sum).Sum(s => s) -
+              dataManager.Operations.GetOperations().Where(o => o.OperationType == "Expense").Select(o => o.Sum).Sum(s => s);
+
+            Balance = currentBalance.ToString("### ### ### ###");
+        }
+
+        private bool CanRefreshBalanceCommandExecute(object p)
+        {
+            return true;
+        }
+
+        #endregion
+
 
         #region Close command
 

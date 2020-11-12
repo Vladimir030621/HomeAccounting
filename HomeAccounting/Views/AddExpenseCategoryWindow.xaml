@@ -1,15 +1,14 @@
-﻿<Window x:Class="HomeAccounting.Views.AddIncomeCategoryWindow"
+﻿<Window x:Class="HomeAccounting.Views.AddExpenseCategoryWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:HomeAccounting.ViewModels"
-        xmlns:cmd="clr-namespace:HomeAccounting.Commands"
         xmlns:local="clr-namespace:HomeAccounting.Views"
         mc:Ignorable="d"
-        Title="Home Accounting" Height="250" Width="360" WindowStartupLocation="CenterScreen">
+        Title="AddExpenseCategoryWindow" Height="250" Width="360" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
-        <vm:AddIncomeCategoryViewModel/>
+        <vm:AddExpenseCategoryViewModel/>
     </Window.DataContext>
     <Window.Resources>
         <Style x:Key="GreenBoldFont">
@@ -29,15 +28,15 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
+
         <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Width="230" Margin="0 20 0 0 ">
             <TextBlock Style="{StaticResource GreenBoldFont}" HorizontalAlignment="Left">Add Category</TextBlock>
-            <TextBox  Text="{Binding CategoryToSave}" Margin="0 20 0 0"/>
+            <TextBox  Text="{Binding CategoryExpenseToSave}" Margin="0 20 0 0"/>
         </StackPanel>
 
         <Border Grid.Row="1" HorizontalAlignment="Right" Margin="0 0 15 10">
-            <Button  Background="#FF2F8EA2" Command="{Binding SaveIncomeCategoryCommand}" 
-                    CommandParameter="{Binding CategoryToSave}" Height="30px" Width="100" BorderThickness="0" VerticalAlignment="Center" >
+            <Button  Background="#FF2F8EA2" Command="{Binding SaveExpenseCategoryCommand}" 
+                    CommandParameter="{Binding CategoryExpenseToSave}" Height="30px" Width="100" BorderThickness="0" VerticalAlignment="Center" >
                 <Grid>
                     <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="16" Text="Save"/>
                 </Grid>

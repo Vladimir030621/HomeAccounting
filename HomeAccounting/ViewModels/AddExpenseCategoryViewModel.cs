@@ -2,46 +2,43 @@
 using HomeAccounting.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 namespace HomeAccounting.ViewModels
 {
-    class AddIncomeCategoryViewModel : ViewModel
+    class AddExpenseCategoryViewModel : ViewModel
     {
         private DataManager dataManager;
 
         public Action CloseAction { get; set; }
 
-        public AddIncomeCategoryViewModel()
+        public AddExpenseCategoryViewModel()
         {
             dataManager = new DataManager();
 
-            SaveIncomeCategoryCommand =
-                new LambdaCommand(OnSaveIncomeCategoryCommandExecuted, CanSaveIncomeCategoryCommandExecute);         
+            SaveExpenseCategoryCommand =
+                new LambdaCommand(OnSaveExpenseCategoryCommandExecuted, CanSaveExpenseCategoryCommandExecute);
         }
 
-        #region CatogoryToSave viewmodel property
+        #region CategoryExpenseToSave property
 
-        private string _CategoryToSave;
-        public string CategoryToSave
+        private string _CategoryExpenseToSave;
+        public string CategoryExpenseToSave
         {
-            get => _CategoryToSave; 
-            set => Set(ref _CategoryToSave, value); 
+            get => _CategoryExpenseToSave;
+            set => Set(ref _CategoryExpenseToSave, value);
         }
 
         #endregion
 
-        #region Save Income Catogory command
+        #region Save expense category command
 
-        public ICommand SaveIncomeCategoryCommand { get; }
+        public ICommand SaveExpenseCategoryCommand { get; }
 
-        private void OnSaveIncomeCategoryCommandExecuted(object p)
+        private void OnSaveExpenseCategoryCommandExecuted(object p)
         {
             string currentCategory = (string)p;
             if (string.IsNullOrWhiteSpace(nameof(currentCategory)))
@@ -51,16 +48,16 @@ namespace HomeAccounting.ViewModels
 
             Category category = new Category();
             category.CategoryName = currentCategory;
-            category.OperationType = "Income";
+            category.OperationType = "Expense";
 
-            if(currentCategory != null)
+            if (currentCategory != null)
             {
                 dataManager.Categories.AddCategory(category);
                 CloseAction();
-            }    
+            }
         }
 
-        private bool CanSaveIncomeCategoryCommandExecute(object p)
+        private bool CanSaveExpenseCategoryCommandExecute(object p)
         {
             string currentCategory = (string)p;
 
@@ -75,6 +72,5 @@ namespace HomeAccounting.ViewModels
         }
 
         #endregion
-
     }
 }

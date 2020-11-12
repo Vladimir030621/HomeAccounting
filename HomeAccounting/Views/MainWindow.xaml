@@ -11,7 +11,16 @@
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
-    
+    <Window.Resources>
+        <Style x:Key="GreenBoldFont">
+            <Setter Property="ItemsControl.FontSize" Value="25"/>
+            <Setter Property="ItemsControl.Foreground" Value="#ffffff"/>
+            <Setter Property="ItemsControl.HorizontalAlignment" Value="Right"/>
+            <Setter Property="ItemsControl.VerticalAlignment" Value="Center"/>
+            <Setter Property="ItemsControl.FontWeight" Value="Bold"/>
+        </Style>
+    </Window.Resources>
+
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
@@ -31,27 +40,31 @@
                 <ColumnDefinition Width="400"/>
                 <ColumnDefinition Width="50"/>
             </Grid.ColumnDefinitions>
-           
-            <materialDesign:PackIcon Grid.Column="0"  Kind="HomeAnalytics" Width="40px" Height="40px" Foreground="#FFFFFBFB" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10 0 0 0"/>
 
-            <TextBlock Grid.Column="1" Foreground="#FFFBFBFB" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" Margin="10 0 0 0">Home Accounting</TextBlock>
+            <materialDesign:PackIcon Grid.Column="0"  Kind="HomeAnalytics" Width="40px" Height="40px" HorizontalAlignment="Center" Margin="10 0 0 0" Foreground="White" VerticalAlignment="Center"/>
+
+            <TextBlock Grid.Column="1"  FontSize="30" FontWeight="Bold"  Margin="10 0 0 0" Foreground="White" VerticalAlignment="Center">Home Accounting</TextBlock>
 
             <TextBlock Grid.Column="2">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="230"/>
+                        <ColumnDefinition Width="110" />
+                        <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock HorizontalAlignment="Right" FontSize="25" FontWeight="Bold" Foreground="#FFFBFBFB"   VerticalAlignment="Center" Margin="0 0 10 0 ">Balance:</TextBlock>
-                    <TextBlock Grid.Column="1" Text="{Binding Balance}" HorizontalAlignment="Right" FontSize="25" FontWeight="Bold" Foreground="#FFFBFBFB" VerticalAlignment="Center" />
+                       <Button Grid.Column="0" HorizontalAlignment="Right" Command="{Binding RefreshBalanceCommand}" Background="#FF2F8EA2" BorderThickness="0" Height="Auto" Margin="0,5,0,1" Width="47"  >
+                <materialDesign:PackIcon Kind="RefreshCircle" Background="#FF2F8EA2" />
+            </Button>
+                    <TextBlock Grid.Column="1" Margin="0 0 10 0" Style="{StaticResource GreenBoldFont}">Balance:</TextBlock>
+                    <TextBlock Grid.Column="2" Text="{Binding Balance}" Style="{StaticResource GreenBoldFont}" />
                 </Grid>
             </TextBlock>
-            
+
             <Button Grid.Column="3" HorizontalAlignment="Right" Command="{Binding CloseWindowCommand}" Background="#FF2F8EA2" BorderThickness="0" >
                 <materialDesign:PackIcon Kind="CloseBoxOutline" Background="#FF2F8EA2" />
             </Button>
         </Grid>
-        
+
         <Border Grid.Row="1" Grid.Column="0">
             <Button  Background="#FF2F8EA2"  x:Name="IncomeBtn" Click="AddIncome_Click" Height="50px" BorderThickness="0" VerticalAlignment="Bottom">
                 <Grid>
@@ -66,7 +79,7 @@
         </Border>
 
         <Border Grid.Row="2" Grid.Column="0">
-            <Button  Background="#FF2F8EA2"    x:Name="ExpanseBtn" Click="AddExpense_Click" Height="50px" BorderThickness="0" VerticalAlignment="Bottom">
+            <Button  Background="#FF2F8EA2" x:Name="ExpanseBtn" Click="AddExpense_Click" Height="50px" BorderThickness="0" VerticalAlignment="Bottom">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="50px"/>
@@ -93,8 +106,8 @@
 
         <Grid Grid.Row="1" Grid.Column="1"  Grid.RowSpan="3" Margin="0,0,0,-166">
             <StackPanel >
-                    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
-                </StackPanel>
+                <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+            </StackPanel>
         </Grid>
 
 

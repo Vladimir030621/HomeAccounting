@@ -29,15 +29,14 @@
                     <ColumnDefinition Width="60"/>
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-            <TextBlock Text="Filter:" Style="{StaticResource GreenBoldFont}"/>
-            <TextBox Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Width="160"  HorizontalAlignment="Left" VerticalAlignment="Center"></TextBox>
-
+            <TextBlock Text="Filter:" Style="{StaticResource GreenBoldFont}" ToolTip="Filter by Type or Category"/>
+            <TextBox Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Width="160" Foreground="#FF2F8EA2" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBox>
         </Grid>
          
         
         <Grid Grid.Row="1">
             <StackPanel>
-                <DataGrid  Height="330" Width="600" ItemsSource="{Binding Operations}" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                <DataGrid  Height="330" Width="600" ItemsSource="{Binding Operations}" Foreground="#FF2F8EA2" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Type of operation" Binding="{Binding OperationType}"/>
                         <DataGridTextColumn Header="Category" Binding="{Binding Category}"/>

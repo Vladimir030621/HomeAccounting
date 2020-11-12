@@ -17,26 +17,33 @@
         </Style>
     </Page.Resources>
 
+
     <Grid >
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
+            <ColumnDefinition />
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0" Grid.ColumnSpan="3">
             <StackPanel>
-                <TextBlock Style="{StaticResource GreenBoldFont}" FontSize="20" x:Name="IncomeSuccessNotification" HorizontalAlignment="Center" Margin="0 0 30 0">Add Income</TextBlock>
+                <TextBlock Style="{StaticResource GreenBoldFont}" FontSize="20" x:Name="IncomeSuccessNotification" HorizontalAlignment="Center" >Add Income</TextBlock>
             </StackPanel>
         </Grid>
 
+        <Border Grid.Column="0" Margin="0">
+            <Button Command="{Binding RefreshCategoriesCommand}"  Background="#FF2F8EA2" ToolTip="Refresh Category" Height="40" Width="50" BorderThickness="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 40 20 0" HorizontalContentAlignment="Center">
+                <materialDesign:PackIcon Kind="RefreshCircle" Background="#FF2F8EA2" Width="20" Height="18" />
+            </Button>
+        </Border>
+
         <Border Grid.Column="2">
-            <Button  Background="#FF2F8EA2"  x:Name="AddCategoryButton" Click="AddCategory_Click"  ToolTip="Add Category" Height="40" Width="40" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 40 0 0">
+            <Button  Background="#FF2F8EA2"  x:Name="AddCategoryButton" Click="AddCategory_Click"  ToolTip="Add Category" Height="40" Width="50" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20 40 0 0">
                 <TextBlock FontSize="30" Margin="-8,-7,-8,4">+</TextBlock>
             </Button>
         </Border>
 
-     
+
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
@@ -49,22 +56,22 @@
             </Grid.RowDefinitions>
 
             <StackPanel Grid.Row="1">
-                <TextBlock Style="{StaticResource GreenBoldFont}">Category</TextBlock>
+                <TextBlock Style="{StaticResource GreenBoldFont}">Category<TextBlock Foreground="Red">*</TextBlock></TextBlock>
                 <ComboBox x:Name="Category" ItemsSource="{Binding CategoryListIncome}"/>
             </StackPanel>
             <StackPanel  Grid.Row="2">
-                <TextBlock Style="{StaticResource GreenBoldFont}">Sum</TextBlock>
+                <TextBlock Style="{StaticResource GreenBoldFont}">Sum<TextBlock Foreground="Red">*</TextBlock></TextBlock>
                 <TextBox x:Name="Sum" VerticalAlignment="Center"/>
             </StackPanel>
             <StackPanel  Grid.Row="3">
-                <TextBlock Style="{StaticResource GreenBoldFont}">Choose the date</TextBlock>
+                <TextBlock Style="{StaticResource GreenBoldFont}">Date<TextBlock Foreground="Red">*</TextBlock></TextBlock>
                 <DatePicker x:Name="Date" />
             </StackPanel>
             <StackPanel  Grid.Row="4">
                 <TextBlock Style="{StaticResource GreenBoldFont}">Add commentary</TextBlock>
                 <TextBox x:Name="Commentary" MaxLength="30"/>
             </StackPanel>
-           
+
             <Border Grid.Row="5">
                 <Button  Background="#FF2F8EA2"  x:Name="ConfirmButton" Click="ConfirmButton_Click" Height="40px" BorderThickness="0" VerticalAlignment="Bottom">
                     <Grid>

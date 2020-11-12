@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace HomeAccounting.ViewModels
 {
-    public class ViewModel : INotifyPropertyChanged, IDisposable
+    public class ViewModel : INotifyPropertyChanged
     {
+
+        #region Base method for viewmodels
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged ([CallerMemberName] string PropertyName = null)
@@ -31,20 +34,6 @@ namespace HomeAccounting.ViewModels
             return true;
         }
 
-        public void Dispose()
-        {
-            Dispose(true);
-        }
-
-        private bool _Disposed;
-
-        protected virtual void Dispose(bool Disposing)
-        {
-            if(!Disposing || _Disposed)
-            {
-                return;
-            }
-            _Disposed = true;
-        }
+        #endregion
     }
 }

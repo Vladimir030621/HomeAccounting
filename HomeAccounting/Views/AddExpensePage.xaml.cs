@@ -34,8 +34,9 @@ namespace HomeAccounting.Views
             DataContext = new AddExpenseViewModel();
 
             dataManager = new DataManager();
-
         }
+
+        #region Add expense operation
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
@@ -57,29 +58,45 @@ namespace HomeAccounting.Views
                 MessageBox.Show("Incorrect 'Sum' Input");
             }
 
+            if (!CheckNotNullOrWhiteSpace(Date.SelectedDate.ToString()))
+            {
+                MessageBox.Show("Choose a Date");
+            }
+            else if (Date.SelectedDate is DateTime)
+            {
+                currentOperation.Date = (DateTime)Date.SelectedDate;
+            }
+            else
+            {
+                MessageBox.Show("Incorrect 'Date' input");
+            }
+
             currentOperation.OperationType = "Expense";
             currentOperation.Category = Category.Text;
-            currentOperation.Date = Date.DisplayDate;
             currentOperation.Commentary = Commentary.Text;
 
-            if (IsParsed && CheckNotNullOrWhiteSpace(Category.Text) && CheckNotNullOrWhiteSpace(Sum.Text))
+            if (IsParsed && CheckNotNullOrWhiteSpace(Category.Text) && CheckNotNullOrWhiteSpace(Sum.Text) && CheckNotNullOrWhiteSpace(Date.SelectedDate.ToString()))
             {
                 dataManager.Operations.AddOperation(currentOperation);
 
                 SuccessNotification();
-            }
 
-            Category.Text = "";
-            Sum.Text = "";
-            Date.SelectedDate = null;
-            Commentary.Text = "";
+                Category.Text = "";
+                Sum.Text = "";
+                Date.SelectedDate = null;
+                Commentary.Text = "";
+            }
         }
 
+        #endregion
+
+        /// <summary> Show messageBox if succeeded /// </summary>
         private void SuccessNotification()
         {
             ExpenseSuccessNotification.Text = "Operation completed successfully";
         }
 
+        /// <summary> Checking for a null /// </summary>
         private bool CheckNotNullOrWhiteSpace(string input)
         {
             if (string.IsNullOrWhiteSpace(input))
@@ -92,10 +109,11 @@ namespace HomeAccounting.Views
             }
         }
 
+        /// <summary> Open add category window </summary>
         private void AddCategory_Click(object sender, RoutedEventArgs e)
         {
-            AddIncomeCategoryWindow addIncomeCategoryWindow = new AddIncomeCategoryWindow();
-            addIncomeCategoryWindow.Show();
+            AddExpenseCategoryWindow addExpenseCategoryWindow = new AddExpenseCategoryWindow();
+            addExpenseCategoryWindow.Show();
         }
     }
 }
