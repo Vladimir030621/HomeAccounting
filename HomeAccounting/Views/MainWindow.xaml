@@ -91,9 +91,12 @@
             </Button>
         </Border>
 
-        <StackPanel Grid.Row="1" Grid.Column="1"  Grid.RowSpan="3" Margin="0,0,0,-166">
-            <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
-        </StackPanel>
+        <Grid Grid.Row="1" Grid.Column="1"  Grid.RowSpan="3" Margin="0,0,0,-166">
+            <StackPanel >
+                    <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+                </StackPanel>
+        </Grid>
+
 
     </Grid>
 </Window>

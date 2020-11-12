@@ -5,22 +5,48 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HomeAccounting.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="380" d:DesignWidth="600"
       Title="HistoryPage" >
+    <Page.Resources>
+        <Style x:Key="GreenBoldFont">
+            <Setter Property="ItemsControl.FontSize" Value="20"/>
+            <Setter Property="ItemsControl.Foreground" Value="#FF2F8EA2"/>
+            <Setter Property="ItemsControl.HorizontalAlignment" Value="Right"/>
+            <Setter Property="ItemsControl.VerticalAlignment" Value="Center"/>
+            <Setter Property="ItemsControl.Margin" Value="0 0 10 0"/>
+        </Style>
+    </Page.Resources>
 
-    <Grid>
+    <Grid Margin="5 0 0 0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition/>
+            <RowDefinition Height="60"/>
+            <RowDefinition />
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="1" ItemsSource="{Binding Operations}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Type of operation" Binding="{Binding OperationType}"/>
-                <DataGridTextColumn Header="Category" Binding="{Binding Category}"/>
-                <DataGridTextColumn Header="Sum" Binding="{Binding Sum, StringFormat=### ### ###}"/>
-                <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat=dd.MM.yyyy}"/>
-                <DataGridTextColumn Header="Commentary" Binding="{Binding Commentary}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+
+
+            <Grid Grid.Row="0" Margin="20 0 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+            <TextBlock Text="Filter:" Style="{StaticResource GreenBoldFont}"/>
+            <TextBox Text="{Binding FilterText, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Width="160"  HorizontalAlignment="Left" VerticalAlignment="Center"></TextBox>
+
+        </Grid>
+         
+        
+        <Grid Grid.Row="1">
+            <StackPanel>
+                <DataGrid  Height="330" Width="600" ItemsSource="{Binding Operations}" AutoGenerateColumns="False" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Type of operation" Binding="{Binding OperationType}"/>
+                        <DataGridTextColumn Header="Category" Binding="{Binding Category}"/>
+                        <DataGridTextColumn Header="Sum" Binding="{Binding Sum, StringFormat=### ### ###}"/>
+                        <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat=dd.MM.yyyy}"/>
+                        <DataGridTextColumn Header="Commentary" Binding="{Binding Commentary}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Page>
