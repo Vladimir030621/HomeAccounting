@@ -20,7 +20,7 @@ namespace HomeAccounting.ViewModels
         public HistoryPageViewModel()
         {
             dataManager = new DataManager();
-            Operations = CollectionViewSource.GetDefaultView(dataManager.Operations.GetOperations());
+            Operations = CollectionViewSource.GetDefaultView(dataManager.Operations.GetOperations().OrderBy(o => o.Date));
         }
 
         #region FilterText dependency object property

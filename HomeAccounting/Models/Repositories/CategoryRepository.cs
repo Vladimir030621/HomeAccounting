@@ -16,11 +16,13 @@ namespace HomeAccounting.Models.Repositories
             context = new AppDBContext();
         }
 
+        /// <summary> Return all categories </summary>
         public IEnumerable<Category> GetCategories()
         {
             return context.Categories.ToList();
         }
 
+        /// <summary> Save category </summary>
         public void AddCategory(Category category)
         {
             context.Categories.Add(category);

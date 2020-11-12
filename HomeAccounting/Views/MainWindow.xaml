@@ -31,6 +31,7 @@
             <RowDefinition MaxHeight="70"/>
             <RowDefinition MaxHeight="70"/>
             <RowDefinition MaxHeight="70"/>
+            <RowDefinition MaxHeight="70"/>
         </Grid.RowDefinitions>
 
         <Grid Background="#FF2F8EA2" Grid.ColumnSpan="2"  Height="70">
@@ -104,11 +105,26 @@
             </Button>
         </Border>
 
-        <Grid Grid.Row="1" Grid.Column="1"  Grid.RowSpan="3" Margin="0,0,0,-166">
+        <Border Grid.Row="4" Grid.Column="0">
+            <Button  Background="#FF2F8EA2" Click="ChartButton_Click" Height="50px" BorderThickness="0" VerticalAlignment="Bottom">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50px"/>
+                        <ColumnDefinition Width="110px"/>
+                    </Grid.ColumnDefinitions>
+                    <materialDesign:PackIcon HorizontalAlignment="Left" Grid.Column="0"  Kind="ChartAreaspline" Width="30px" Height="30px"/>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center"><Run Text="Chart" /></TextBlock>
+                </Grid>
+            </Button>
+        </Border>
+
+        <Grid Grid.Row="1" Grid.Column="1"  Grid.RowSpan="4" Margin="0,0,0,-95">
             <StackPanel >
                 <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
             </StackPanel>
         </Grid>
+
+
 
 
     </Grid>

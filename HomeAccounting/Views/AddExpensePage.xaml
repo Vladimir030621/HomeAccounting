@@ -56,19 +56,19 @@
 
             <StackPanel Grid.Row="1">
                 <TextBlock Style="{StaticResource GreenBoldFont}">Category<TextBlock Foreground="Red">*</TextBlock></TextBlock>
-                <ComboBox x:Name="Category" ItemsSource="{Binding CategoryListExpense}"/>
+                <ComboBox x:Name="Category" ItemsSource="{Binding CategoryListExpense}" Foreground="#FF2F8EA2"/>
             </StackPanel>
             <StackPanel  Grid.Row="2">
                 <TextBlock Style="{StaticResource GreenBoldFont}">Sum<TextBlock Foreground="Red">*</TextBlock></TextBlock>
-                <TextBox x:Name="Sum" VerticalAlignment="Center"/>
+                <TextBox x:Name="Sum" VerticalAlignment="Center" Foreground="#FF2F8EA2"/>
             </StackPanel>
             <StackPanel  Grid.Row="3">
                 <TextBlock Style="{StaticResource GreenBoldFont}">Date<TextBlock Foreground="Red">*</TextBlock></TextBlock>
-                <DatePicker x:Name="Date"/>
+                <DatePicker x:Name="Date" Foreground="#FF2F8EA2"/>
             </StackPanel>
             <StackPanel  Grid.Row="4">
                 <TextBlock Style="{StaticResource GreenBoldFont}">Add commentary</TextBlock>
-                <TextBox x:Name="Commentary" MaxLength="30"/>
+                <TextBox x:Name="Commentary" MaxLength="30" Foreground="#FF2F8EA2"/>
             </StackPanel>
 
             <Border Grid.Row="5">

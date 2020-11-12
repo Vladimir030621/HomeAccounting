@@ -47,6 +47,10 @@ namespace HomeAccounting.Views
             MainFrame.Content = new AddExpensePage();
         }
 
+        private void ChartButton_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new ChartPage();
+        }
     }
 }
 

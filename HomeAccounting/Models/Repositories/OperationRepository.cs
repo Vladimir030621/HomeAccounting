@@ -16,11 +16,13 @@ namespace HomeAccounting.Models.Repositories
             context = new AppDBContext();
         }
 
+        /// <summary> Return all operations </summary>
         public IEnumerable<Operation> GetOperations()
         {
             return context.Operations.ToList();
         }
 
+        /// <summary> Save operation </summary>
         public void AddOperation(Operation operation)
         {
             context.Operations.Add(operation);
