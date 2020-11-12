@@ -23,7 +23,7 @@ namespace HomeAccounting.ViewModels
             var currentBalance = dataManager.Operations.GetOperations().Where(o => o.OperationType == "Income").Select(o => o.Sum).Sum(s => s) -
                 dataManager.Operations.GetOperations().Where(o => o.OperationType == "Expense").Select(o => o.Sum).Sum(s => s);
 
-            Balance = currentBalance.ToString();
+            Balance = currentBalance.ToString("### ### ### ###");
 
             CloseWindowCommand = new LambdaCommand(OnCloseWindowCommandExecuted, CanCloseWindowCommandExecute);
         }

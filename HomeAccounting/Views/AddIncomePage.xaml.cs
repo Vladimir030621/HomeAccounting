@@ -5,6 +5,7 @@ using HomeAccounting.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,24 +57,37 @@ namespace HomeAccounting.Views
             else
             {
                 MessageBox.Show("Incorrect 'Sum' Input");
+            }        
+
+            if (!CheckNotNullOrWhiteSpace(Date.SelectedDate.ToString()))
+            {
+                MessageBox.Show("Choose a date");
             }
+            else if (Date.SelectedDate is DateTime)
+            {
+                currentOperation.Date = (DateTime)Date.SelectedDate;
+            }
+            else
+            {
+                MessageBox.Show("Incorrect 'Date' input");
+            }
+
 
             currentOperation.OperationType = "Income";
             currentOperation.Category = Category.Text;
-            currentOperation.Date = Date.DisplayDate;
             currentOperation.Commentary = Commentary.Text;
 
-            if(IsParsed && CheckNotNullOrWhiteSpace(Category.Text) && CheckNotNullOrWhiteSpace(Sum.Text))
+            if(IsParsed && CheckNotNullOrWhiteSpace(Category.Text) && CheckNotNullOrWhiteSpace(Sum.Text) && CheckNotNullOrWhiteSpace(Date.SelectedDate.ToString()))
             {
                 dataManager.Operations.AddOperation(currentOperation);
 
                 SuccessNotification();
-            }
 
-            Category.Text = "";
-            Sum.Text = "";
-            Date.SelectedDate = null;
-            Commentary.Text = "";
+                Category.Text = "";
+                Sum.Text = "";
+                Date.SelectedDate = null;
+                Commentary.Text = "";
+            }
         }
 
         private void SuccessNotification()

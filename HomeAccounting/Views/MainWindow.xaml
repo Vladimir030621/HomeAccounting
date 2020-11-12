@@ -83,10 +83,10 @@
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="50px"/>
-                        <ColumnDefinition Width="150px"/>
+                        <ColumnDefinition Width="110px"/>
                     </Grid.ColumnDefinitions>
                     <materialDesign:PackIcon HorizontalAlignment="Left" Grid.Column="0"  Kind="Table" Width="30px" Height="30px"/>
-                    <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="20"><Run Text="History"/></TextBlock>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center" FontSize="20" HorizontalAlignment="Center"><Run Text="History" /></TextBlock>
                 </Grid>
             </Button>
         </Border>

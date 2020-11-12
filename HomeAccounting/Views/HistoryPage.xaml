@@ -17,8 +17,8 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Type of operation" Binding="{Binding OperationType}"/>
                 <DataGridTextColumn Header="Category" Binding="{Binding Category}"/>
-                <DataGridTextColumn Header="Sum" Binding="{Binding Sum}"/>
-                <DataGridTextColumn Header="Date" Binding="{Binding Date}"/>
+                <DataGridTextColumn Header="Sum" Binding="{Binding Sum, StringFormat=### ### ###}"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat=dd.MM.yyyy}"/>
                 <DataGridTextColumn Header="Commentary" Binding="{Binding Commentary}"/>
             </DataGrid.Columns>
         </DataGrid>

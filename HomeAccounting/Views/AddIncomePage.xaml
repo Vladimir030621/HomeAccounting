@@ -58,7 +58,7 @@
             </StackPanel>
             <StackPanel  Grid.Row="3">
                 <TextBlock Style="{StaticResource GreenBoldFont}">Choose the date</TextBlock>
-                <DatePicker x:Name="Date"/>
+                <DatePicker x:Name="Date" />
             </StackPanel>
             <StackPanel  Grid.Row="4">
                 <TextBlock Style="{StaticResource GreenBoldFont}">Add commentary</TextBlock>
