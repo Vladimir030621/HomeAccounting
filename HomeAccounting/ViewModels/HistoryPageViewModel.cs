@@ -25,6 +25,7 @@ namespace HomeAccounting.ViewModels
 
         #region FilterText dependency object property
 
+        /// <summary> FilterText dependency object property </summary>
         public string FilterText
         {
             get { return (string)GetValue(FilterTextProperty); }
@@ -38,6 +39,7 @@ namespace HomeAccounting.ViewModels
 
         #region FilterText_changed methods
 
+        /// <summary> FilterText_changed method </summary>
         private static void FilterText_Changed(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var current = d as HistoryPageViewModel;
@@ -48,6 +50,7 @@ namespace HomeAccounting.ViewModels
             }
         }
 
+        /// <summary> FilterText_changed method </summary>
         private bool FilterOperation(object obj)
         {
             bool result = true;
@@ -67,6 +70,7 @@ namespace HomeAccounting.ViewModels
 
         #region Operations dependency object property
 
+        /// <summary> Operations dependency object property </summary>
         public ICollectionView Operations
         {
             get { return (ICollectionView)GetValue(OperationsProperty); }
@@ -75,6 +79,7 @@ namespace HomeAccounting.ViewModels
 
         public static readonly DependencyProperty OperationsProperty =
             DependencyProperty.Register("Operations", typeof(ICollectionView), typeof(HistoryPageViewModel), new PropertyMetadata(null));
+       
         #endregion
 
     }

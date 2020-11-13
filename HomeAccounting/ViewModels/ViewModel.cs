@@ -11,7 +11,9 @@ namespace HomeAccounting.ViewModels
     public class ViewModel : INotifyPropertyChanged
     {
 
-        #region Base method for viewmodels
+        #region Base methods for viewmodels
+
+        /// <summary> Base viewmodel property </summary>
 
         public event PropertyChangedEventHandler PropertyChanged;
 

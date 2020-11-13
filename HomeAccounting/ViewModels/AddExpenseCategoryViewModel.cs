@@ -25,6 +25,7 @@ namespace HomeAccounting.ViewModels
 
         #region CategoryExpenseToSave property
 
+        /// <summary> CategoryExpenseToSave viewmodel property</summary>
         private string _CategoryExpenseToSave;
         public string CategoryExpenseToSave
         {
@@ -41,6 +42,7 @@ namespace HomeAccounting.ViewModels
         private void OnSaveExpenseCategoryCommandExecuted(object p)
         {
             string currentCategory = (string)p;
+
             if (string.IsNullOrWhiteSpace(nameof(currentCategory)))
             {
                 throw new ArgumentNullException("Category name cannot be empty", nameof(currentCategory));

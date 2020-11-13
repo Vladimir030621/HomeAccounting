@@ -23,35 +23,47 @@ namespace HomeAccounting.ViewModels
         {
             dataManager = new DataManager();
 
+            ChartArrange();
+        }
+
+        #region Chart Arranging
+
+        private void ChartArrange()
+        {
+            /// <summary> Create plot model and axis </summary>
+            var plotModel = new PlotModel();
+            plotModel.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, StringFormat = "dd/MM/yy" });
+            plotModel.Axes.Add(new LogarithmicAxis { Position = AxisPosition.Left, StringFormat = "### ### ###" });
+
+
+            /// <summary> Adding points to income line</summary>
             var incomeOperations = dataManager.Operations.GetOperations().Where(o => o.OperationType == "Income").OrderBy(o => o.Date);
-            var expenseOperations = dataManager.Operations.GetOperations().Where(o => o.OperationType == "Expense").OrderBy(o => o.Date);
-
-            // Create the plot model
-            var tmp = new PlotModel();
-            tmp.Axes.Add(new DateTimeAxis { Position = AxisPosition.Bottom, StringFormat = "dd/MM/yy" });
-            tmp.Axes.Add(new LogarithmicAxis { Position = AxisPosition.Left, StringFormat = "### ### ###" });
-
 
             var incomes = new LineSeries { Title = "Income", MarkerType = MarkerType.Circle };
 
-            foreach (var o in incomeOperations)
+            foreach (Operation operation in incomeOperations)
             {
-                incomes.Points.Add(new DataPoint(DateTimeAxis.ToDouble(o.Date), Convert.ToDouble(o.Sum)));
+                incomes.Points.Add(new DataPoint(DateTimeAxis.ToDouble(operation.Date), Convert.ToDouble(operation.Sum)));
             }
-    
+
+            /// <summary> Adding points to expense line</summary>
+            var expenseOperations = dataManager.Operations.GetOperations().Where(o => o.OperationType == "Expense").OrderBy(o => o.Date);
+
             var expenses = new LineSeries { Title = "Expense", MarkerType = MarkerType.Circle };
 
-            foreach (var o in expenseOperations)
+            foreach (Operation operation in expenseOperations)
             {
-                expenses.Points.Add(new DataPoint(DateTimeAxis.ToDouble(o.Date), Convert.ToDouble(o.Sum)));
+                expenses.Points.Add(new DataPoint(DateTimeAxis.ToDouble(operation.Date), Convert.ToDouble(operation.Sum)));
             }
 
 
-            tmp.Series.Add(incomes);
-            tmp.Series.Add(expenses);
+            plotModel.Series.Add(incomes);
+            plotModel.Series.Add(expenses);
 
-            this.Model = tmp;
+            this.Model = plotModel;
         }
+
+        #endregion
 
     }
 }

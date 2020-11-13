@@ -30,6 +30,7 @@ namespace HomeAccounting.ViewModels
 
         #region CategoryListIncome dependency object property
 
+        /// <summary> CategoryListIncome dependency object property </summary>
         public List<string> CategoryListIncome
         {
             get { return (List<string>)GetValue(CategoryListIncomeProperty); }

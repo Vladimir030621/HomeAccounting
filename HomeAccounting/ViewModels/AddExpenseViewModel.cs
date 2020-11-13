@@ -30,6 +30,7 @@ namespace HomeAccounting.ViewModels
 
         #region CategoryListExpense dependency object property
 
+        /// <summary> CategoryListExpense dependency object property</summary>
         public List<string> CategoryListExpense
         {
             get { return (List<string>)GetValue(CategoryListExpenseProperty); }

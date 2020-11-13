@@ -32,6 +32,7 @@ namespace HomeAccounting.ViewModels
 
         #region Balance Dependency object property
 
+        /// <summary> Balance dependency object property </summary>
         public string Balance
         {
             get { return (string)GetValue(BalanceProperty); }
@@ -45,6 +46,8 @@ namespace HomeAccounting.ViewModels
 
 
         #region Refresh balance command
+
+        /// <summary> Refresh balance command </summary>
 
         public ICommand RefreshBalanceCommand { get; }
 
@@ -65,6 +68,8 @@ namespace HomeAccounting.ViewModels
 
 
         #region Close command
+
+        /// <summary> Close command </summary>
 
         public ICommand CloseWindowCommand { get; }
 

@@ -41,6 +41,8 @@ namespace HomeAccounting.Views
 
         #region Add Income operation
 
+        /// <summary> Add income operation </summary>
+
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
             bool IsParsed = false;
@@ -93,13 +95,13 @@ namespace HomeAccounting.Views
 
         #endregion
 
-        /// <summary> Show messageBox if succeeded /// </summary>
+        /// <summary> Show messageBox if succeeded </summary>
         private void SuccessNotification()
         {
             IncomeSuccessNotification.Text = "Operation completed successfully";
         }
 
-        /// <summary> Checking for a null /// </summary>
+        /// <summary> Checking for a null </summary>
         private bool CheckNotNullOrWhiteSpace(string input)
         {
             if (string.IsNullOrWhiteSpace(input))

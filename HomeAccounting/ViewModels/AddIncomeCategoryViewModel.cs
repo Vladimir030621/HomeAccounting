@@ -28,6 +28,7 @@ namespace HomeAccounting.ViewModels
 
         #region CatogoryToSave viewmodel property
 
+        /// <summary> CatogoryToSave viewmodel property </summary>
         private string _CategoryToSave;
         public string CategoryToSave
         {
