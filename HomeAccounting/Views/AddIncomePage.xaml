@@ -17,7 +17,6 @@
         </Style>
     </Page.Resources>
 
-
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -42,7 +41,6 @@
                 <TextBlock FontSize="30" Margin="-8,-7,-8,4">+</TextBlock>
             </Button>
         </Border>
-
 
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
@@ -79,7 +77,6 @@
                     </Grid>
                 </Button>
             </Border>
-
         </Grid>
     </Grid>
 </Page>

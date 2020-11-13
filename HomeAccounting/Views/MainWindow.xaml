@@ -123,9 +123,5 @@
                 <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
             </StackPanel>
         </Grid>
-
-
-
-
     </Grid>
 </Window>

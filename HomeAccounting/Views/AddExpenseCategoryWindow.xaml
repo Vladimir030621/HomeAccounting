@@ -6,7 +6,7 @@
         xmlns:vm="clr-namespace:HomeAccounting.ViewModels"
         xmlns:local="clr-namespace:HomeAccounting.Views"
         mc:Ignorable="d"
-        Title="AddExpenseCategoryWindow" Height="250" Width="360" WindowStartupLocation="CenterScreen">
+        Title="Home Accounting" Height="250" Width="360" WindowStartupLocation="CenterScreen">
     <Window.DataContext>
         <vm:AddExpenseCategoryViewModel/>
     </Window.DataContext>
