@@ -17,6 +17,8 @@ namespace HomeAccounting.Models
 
         public decimal Sum { get; set; }
 
+        public decimal Total { get; set; }
+
         [Column(TypeName = "datetime2")]
         public DateTime Date { get; set; }
 

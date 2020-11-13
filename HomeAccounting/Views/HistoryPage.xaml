@@ -40,8 +40,9 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Type of operation" Binding="{Binding OperationType}"/>
                         <DataGridTextColumn Header="Category" Binding="{Binding Category}"/>
+                        <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat=dd.MM.yyyy}" />
                         <DataGridTextColumn Header="Sum" Binding="{Binding Sum, StringFormat=### ### ###}" />
-                        <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat=dd.MM.yyyy}"/>
+                        <DataGridTextColumn Header="Total" Binding="{Binding Total, StringFormat=### ### ###}" />
                         <DataGridTextColumn Header="Commentary" Binding="{Binding Commentary}" />
                     </DataGrid.Columns>
                 </DataGrid>

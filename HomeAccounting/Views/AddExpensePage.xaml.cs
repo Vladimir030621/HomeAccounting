@@ -73,9 +73,13 @@ namespace HomeAccounting.Views
                 MessageBox.Show("Incorrect 'Date' input");
             }
 
+            decimal currentBalance = dataManager.Operations.GetOperations().Where(o => o.OperationType == "Income").Select(o => o.Sum).Sum(s => s) -
+            dataManager.Operations.GetOperations().Where(o => o.OperationType == "Expense").Select(o => o.Sum).Sum(s => s);
+
             currentOperation.OperationType = "Expense";
             currentOperation.Category = Category.Text;
             currentOperation.Commentary = Commentary.Text;
+            currentOperation.Total = currentBalance - currentOperation.Sum;
 
             if (IsParsed && CheckNotNullOrWhiteSpace(Category.Text) && CheckNotNullOrWhiteSpace(Sum.Text) && CheckNotNullOrWhiteSpace(Date.SelectedDate.ToString()))
             {

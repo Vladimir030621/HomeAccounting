@@ -53,7 +53,7 @@
                         <ColumnDefinition Width="120"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                       <Button Grid.Column="0" HorizontalAlignment="Right" Command="{Binding RefreshBalanceCommand}" Background="#FF2F8EA2" BorderThickness="0" Height="Auto" Margin="0,5,0,1" Width="47"  >
+                       <Button Grid.Column="0" Command="{Binding RefreshBalanceCommand}" ToolTip="Refresh the balance" HorizontalAlignment="Right"  Background="#FF2F8EA2" BorderThickness="0" Height="Auto" Margin="0,5,0,1" Width="47"  >
                 <materialDesign:PackIcon Kind="RefreshCircle" Background="#FF2F8EA2" />
             </Button>
                     <TextBlock Grid.Column="1" Margin="0 0 10 0" Style="{StaticResource GreenBoldFont}">Balance:</TextBlock>
@@ -61,7 +61,7 @@
                 </Grid>
             </TextBlock>
 
-            <Button Grid.Column="3" HorizontalAlignment="Right" Command="{Binding CloseWindowCommand}" Background="#FF2F8EA2" BorderThickness="0" >
+            <Button Grid.Column="3"  Command="{Binding CloseWindowCommand}" ToolTip="Quit" HorizontalAlignment="Right" Background="#FF2F8EA2" BorderThickness="0" Margin="0,19,-8,19" Width="46" >
                 <materialDesign:PackIcon Kind="CloseBoxOutline" Background="#FF2F8EA2" />
             </Button>
         </Grid>

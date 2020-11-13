@@ -26,7 +26,6 @@ namespace HomeAccounting.Views
     /// </summary>
     public partial class AddIncomePage : Page
     {
-
         private DataManager dataManager;
 
         public AddIncomePage()
@@ -76,11 +75,18 @@ namespace HomeAccounting.Views
                 MessageBox.Show("Incorrect 'Date' input");
             }
 
+
+            decimal currentBalance = dataManager.Operations.GetOperations().Where(o => o.OperationType == "Income").Select(o => o.Sum).Sum(s => s) -
+            dataManager.Operations.GetOperations().Where(o => o.OperationType == "Expense").Select(o => o.Sum).Sum(s => s);
+
+
             currentOperation.OperationType = "Income";
             currentOperation.Category = Category.Text;
             currentOperation.Commentary = Commentary.Text;
+            currentOperation.Total = currentBalance + currentOperation.Sum;
 
-            if(IsParsed && CheckNotNullOrWhiteSpace(Category.Text) && CheckNotNullOrWhiteSpace(Sum.Text) && CheckNotNullOrWhiteSpace(Date.SelectedDate.ToString()))
+
+            if (IsParsed && CheckNotNullOrWhiteSpace(Category.Text) && CheckNotNullOrWhiteSpace(Sum.Text) && CheckNotNullOrWhiteSpace(Date.SelectedDate.ToString()))
             {
                 dataManager.Operations.AddOperation(currentOperation);
 
